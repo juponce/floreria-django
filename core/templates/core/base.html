@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}" />
+    </head>
+    <body>
+        <!-- inicio header -->
+        <header>
+            <div class="sesion mb-4">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'perfil' %}">{{user.username}} /</a>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+                {% else %}
+                <a href="{% url 'login' %}">Inicio de sesion /</a>
+                <a href="{% url 'signup' %}">Registrarse</a>
+                {% endif %}
+            </div>
+            <div class="inicio">
+                <!-- imagen hoja -->
+                <div class="uno">
+                    <div class="circulo">
+                        <img
+                            src="{% static 'core/img/hoja.png' %}"
+                            alt=""
+                            height="181px"
+                            width="181px"
+                        />
+                    </div>
+                </div>
+                <!-- fin imagen hoja -->
+                <!-- inicio navbar -->
+                <nav
+                    class="navbar navbar-expand-lg navbar-light bg-light fixed mb-3"
+                >
+                    <div class="container-fluid" id="menu-movil">
+                        <button
+                            class="navbar-toggler mb-3"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-label="Toggle navigation"
+                        >
+                            <i class="fa-solid fa-list"></i>
+                        </button>
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarSupportedContent"
+                        >
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active"
+                                        aria-current="page"
+                                        href="{% url 'home' %}"
+                                        >Inicio</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'donacion' %}">Donaciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'carrito' %}">Carrito</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- fin navbar -->
+            </div>
+        </header>
+{% block content %}
+
+{% endblock %}
+
+    <footer class="footer">
+    <br>
+        <p>
+            &copy; Todos los derechos reservados
+        </p>
+    </footer>
+    <script src="https://kit.fontawesome.com/ab252321e7.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/fontawsome.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'core/js/carrito.js' %}"></script>
+    <script type="text/javascript">
+        var user = '{{request.user}}';
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (
+                        cookie.substring(0, name.length + 1) ===
+                        name + '='
+                    ) {
+                        cookieValue = decodeURIComponent(
+                            cookie.substring(name.length + 1)
+                        );
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getToken('csrftoken');
+    </script>
+</body>
+</html>

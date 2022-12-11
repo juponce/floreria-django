@@ -1,0 +1,74 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %} Inicio 
+{% endblock %} {% block content %}
+<h2>Carrito de compras</h2>
+<br />
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% csrf_token %} {% for item in items %}
+            <tr>
+                <th scope="row">{{ item.producto.nombreProducto }}</th>
+                <td>${{ item.producto.precio }}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                    <p class="cantidad">{{ item.cantidad }}</p>
+                    <div class="cantidad">
+                        <i
+                            class="fa-solid fa-sort-up update-cart"
+                            data-product="{{ item.producto.id }}"
+                            data-action="add"
+                        ></i>
+                        <i
+                            class="fa-solid fa-sort-down update-cart"
+                            data-product="{{ item.producto.id }}"
+                            data-action="remove"
+                        ></i>
+                    </div>
+                    </div>
+                </td>
+                <td>${{ item.get_total }}</td>
+                <td>
+                    <button type="button" class="eliminar">
+                        <i class="fa-solid fa-trash update-cart" data-product="{{ item.producto.id }}"
+                        data-action="delete"></i>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            <tfoot>
+                <tr>
+                    <td>Total:</td>
+                    <td>${{ carrito.get_total_cart }}</td>
+                </tr>
+                
+            </tfoot>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-success">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </button>
+
+        <a href="{% url 'checkout' %}"><button type="button" class="btn btn btn-success">Comprar</button></a>
+    </div>
+
+    <br />
+        {% if dona == 0 %}
+        <a href="{% url 'donacion' %}" class="donacion">¿Aun no estas suscrito a la fundacion ? Haz tu donacion
+        aqui  y obten espectaculares descuentos</a>
+        {% else %}
+        <p class="donacion">¡Se ha aplicado un 5% de descuento por su donación!</p>
+        {% endif %}
+</div>
+<br />
+<br />
+{% endblock %}

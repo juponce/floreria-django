@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %} Inicio 
+{% endblock %} {% block content %}
+<section class="d-flex justify-content-around main-entrega">
+    <div class="d-flex flex-column align-items-center donacion-main">
+        <h3 class="mt-5">Suscripción a programa de donaciones</h3>
+        
+
+        <form
+            action=""
+            method="POST"
+            class="d-flex flex-column align-items-center donacion-form"
+        >{% csrf_token %}
+            <div class="form-group donacion-fields">
+                <label for="usuario">Nombre de usuario</label>
+                {{form.usuario}}
+                <label for="nombre">Ingrese su nombre completo</label>
+                {{ form.nombre }}
+            </div>
+            <button type="submit" class="boton-compra2 mt-3">Suscribirme</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

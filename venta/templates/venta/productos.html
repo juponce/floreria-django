@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %} Inicio 
+{% endblock %} {% block content %}
+<!-- inicio productos -->
+    <div class="container">
+        <br>
+        <!-- primera fila inicio -->
+        <div class="row">
+            
+
+            {% for i in productos %}
+            {% csrf_token %}
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                    <div class="columna">
+                        <div class="imagen">
+                            <img src="{{ i.imagen.url }} " alt="">
+                            {% if request.user.is_staff %}
+                            <div class="editar">
+                                <button type="button"><i class="fa-solid fa-pen"></i>   Editar</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="descripcion">
+                            <h5>
+                                {{ i.nombreProducto }}
+                            </h5>
+                            <p>
+                                {{ i.descripcion }}
+                            </p>
+                            <div class="uno">
+                            </div>
+                            <div class="precios">
+                                <p>Precio: ${{ i.precio }}</p>
+                                <p>Stock: {{ i.stock }}</p>
+                            </div>
+                            {% if i.stock == 0 %}
+                            <div class="agotado">
+                                <button
+                                disabled
+                                type="submit"
+                                class="actualizar-carrito"
+                            >
+                            
+                                Agotado
+                                </button>
+                            </div>
+                            {% else %}
+                            <div class="anadir">
+                                <button
+                                data-product="{{ i.id }}"
+                                data-action="add"
+                                type="submit"
+                                class="actualizar-carrito"
+                            >
+                            
+                                Añadir
+                                </button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            <!-- sefunda -->
+
+
+    </div>
+    </div>
+    <br>
+    <br>
+
+{% endblock %}

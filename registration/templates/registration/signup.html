@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<!-- inicia formulario registro -->
+<form class="py-4 px-4 form-registro" action="" method="POST">
+  {% csrf_token %}
+    <div class="row justify-content-center pt-4 mt-5 mr-1">
+        <div class="col-md-4 registro-for">
+            <div class="form-group text-center">
+                <h1 id="tittle3">Registrate</h1>
+            </div>
+
+            <div class="form-group mx-sm-7 pt-2">
+              <label for="usuario" class="form-label">Usuario</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group mx-sm-7 pt-2">
+              <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+                {{ form.email }}
+            </div>
+            
+            <div class="form-group mx-sm-7 pt-2">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                {{ form.password1 }}
+            </div>
+            
+            <div class="form-group mx-sm-7 pt-2">
+              <label for="exampleInputPassword2" class="form-label"> Confirmar Contraseña</label>
+                {{ form.password2 }}
+            </div>
+            <!-- <div class="mx-sm-7 pt-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Acepto términos y condiciones.</label>
+              </div> -->
+
+            <div class="form-group mx-sm-5 " style="text-align: center;">
+              <button type="submit" class="btn-3 btn-block registrar">Registrarse</button>                       
+              </div>
+
+            <a class= "a3 py-3 align-items-center" href="{% url 'login' %}">¿Ya tienes una cuenta? Inicia Sesion</a>
+        </div>
+    </div>
+</form>
+
+<!-- fin registrar -->
+<br>
+<br>
+{% endblock %}

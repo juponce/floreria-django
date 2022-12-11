@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %} Inicio 
+{% endblock %} {% block content %}
+<h2>Pedidos</h2>
+<!-- tabla pedidos -->
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Pedido</th>
+                <th scope="col">Total</th>
+                <th scope="col">Fecha pedido</th>
+                <th scope="col">Estado pedido</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in pedido %}
+            <tr>
+                <th scope="row">{{ i.id }}</th>
+                <td>${{ i.total }}</td>
+                <td>{{ i.fechaCreacion|date:"d/m/Y" }}</td>
+                <td>{{ i.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'perfil' %}"><button type="button" class="btn btn-success media-boton">Volver</button></a>
+</div>
+<!-- fin tabla pedidos -->
+{% endblock %}

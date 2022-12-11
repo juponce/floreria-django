@@ -1,0 +1,606 @@
+:root {
+    --verde: #295d09;
+    --blanco: #e9ebed;
+    --verde-claro: #69ab3d;
+    --verde-mas-claro: #aed36c;
+    --gris: #707070;
+    --gris-oscuro: #3e3e3e;
+    --letras: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+header {
+    background-color: var(--verde);
+    /* height: 260px; */
+    width: 100%;
+}
+.circulo img {
+    border-radius: 150px;
+    position: relative;
+    background-color: var(--blanco);
+}
+.navbar {
+    background-color: var(--verde) !important;
+    margin-top: 15px;
+    height: 5px;
+}
+.navbar .navbar-toggler {
+    background-color: var(--verde) !important;
+}
+
+.nav-link {
+    color: var(--blanco) !important;
+    font-size: 20px;
+}
+
+
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+.inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sesion {
+    position: relative;
+    text-align: right;
+    right: 15px;
+    top: 10px;
+}
+.sesion a {
+    text-decoration: none;
+    color: #e9ebed;
+    font-size: 20px;
+}
+/* header p {
+    text-align: right;
+    position: relative;
+    right: 10px;
+    color: var(--blanco);
+} */
+.carrito {
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    font-family: var(--letras);
+    font-size: 20px;
+}
+.fa-list {
+    color: #e9ebed;
+}
+h2 {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-success {
+    background-color: var(--verde-claro) !important;
+    border: 1px solid var(--gris) !important;
+}
+.btn-success2 {
+    position: relative;
+    background-color: var(--verde-mas-claro) !important;
+    left: 940px;
+    border: 1px solid var(--gris);
+}
+
+.table {
+    font-size: 16px;
+}
+.eliminar {
+    background-color: var(--verde-claro);
+    color: var(--blanco);
+}
+
+
+.donacion {
+    text-align: right;
+    letter-spacing: 0px;
+    color: var(--gris);
+    opacity: 1;
+}
+.donacion a {
+    text-align: right;
+    letter-spacing: 0px;
+    color: var(--gris);
+    opacity: 1;
+    text-decoration: none;
+}
+
+.footer {
+    margin-top: auto;
+    height: 130px;
+    width: 100%;
+    background: var(--verde);
+    text-align: center;
+    color: var(--blanco);
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    background-color: var(--verde);
+    height: 397px;
+    width: 260px;
+    border-radius: 10px;
+}
+.imagen {
+    /* background-color: var(--gris); */
+    width: 234px;
+    height: 150px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.imagen img {
+    width: 234px;
+    height: 150px;
+}
+
+.editar {
+    position: absolute;
+    top: 0;
+    left: 130px;
+}
+.editar button {
+    background: var(--gris-oscuro);
+    width: 104px;
+    height: 29px;
+    color: #e9ebed;
+    border: 1px solid var(--blanco);
+    font-family: var(--letras);
+}
+.descripcion {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    color: var(--blanco);
+    margin-left: 10px;
+}
+
+.descripcion .uno {
+    background-color: var(--gris);
+    height: 1px;
+}
+.descripcion p {
+    font: normal normal normal 16px;
+    font-family: var(--letras);
+}
+.anadir {
+    display: grid;
+    justify-content: center;
+}
+.anadir button {
+    background-color: var(--verde-claro);
+    width: 141px;
+    height: 41px;
+    color: var(--blanco);
+    border: 1px solid var(--blanco);
+    font-family: var(--letras);
+}
+
+.agotado {
+    display: grid;
+    justify-content: center;
+}
+
+.agotado button{
+    background-color: var(--gris);
+    width: 141px;
+    height: 41px;
+    color: var(--blanco);
+    border: 1px solid var(--blanco);
+    font-family: var(--letras);
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .btn-success2 {
+        position: relative;
+        left: 820px;
+    }
+    .table {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 985px) {
+    #menu-movil {
+        z-index: 999;
+        background: #295d09;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .columna {
+        /* width: 400px;
+        height: 537px; */
+    }
+    .imagen {
+        /* width: 374px;
+        height: 237px; */
+    }
+    .descripcion {
+        font-size: 16px;
+    }
+    .btn-success2 {
+        position: relative;
+        left: 620px;
+    }
+    .table {
+        font-size: 16px;
+    }
+    .donacion {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .columna {
+        /* width: 500px;
+        margin: 80px;
+        height: 537px; */
+    }
+    header {
+        height: 100%;
+        width: 100%;
+    }
+    .navbar {
+        width: 100%;
+        background-color: #295d09;
+        height: 20px;
+    }
+
+    .imagen {
+        /* width: 474px;
+        height: 237px; */
+    }
+    .descripcion {
+        font-size: 16px;
+    }
+    .anadir {
+        display: grid;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .btn-success2 {
+        position: relative;
+        left: 420px;
+    }
+    .table {
+        font-size: 16px;
+    }
+    .carrito {
+        bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-success2 {
+        position: relative;
+        left: 320px;
+    }
+    .donacion {
+        font-size: 16px;
+    }
+    .table {
+        font-size: 16px;
+    }
+}
+
+
+.iniciar-for{
+    background-color:var(--verde);
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: green;
+    color: white;
+    border-radius: 10px;
+    max-width: 540px;
+    width: 90%;
+}
+
+#tittle2{
+    text-align: center;
+    font: normal normal normal 24px/32px Segoe UI;
+    letter-spacing: 0px;
+    color: #E9EBED;
+    opacity: 1;
+}
+
+.btn-2{
+    background-color: #69AB3D;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    border: 0px;
+    display: inline-block;
+    
+}
+
+.btn-2:hover{
+
+    color: var(--verde);
+
+}
+
+
+.a2{
+    color: #E9EBED;
+    margin-left: 25%;
+    margin-bottom:100px;
+    
+    
+}
+.a2:hover{
+    color:var(--verde-mas-claro);
+}
+
+.iniciar{
+    padding: 10px;
+    margin-left: 35%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 140px;
+    text-align: center;
+
+    font: normal normal normal 16px/21px Segoe UI;
+    letter-spacing: 0px;
+    color: #E9EBED;
+    opacity: 1;
+    
+
+}
+
+.registro-for{
+    background-color:var(--verde);
+    padding: 58px;    
+    box-shadow: green;
+    color: white;
+    border-radius: 10px;
+    max-width: 510px;
+    width: 90%;
+    margin-bottom: 88px;
+    margin-top: -20px;
+    height: auto;
+    margin: auto;
+
+}
+
+.registrar{
+    font: normal normal normal 16px/21px Segoe UI;
+    letter-spacing: 0px;
+    color: #E9EBED;
+    opacity: 1;
+    box-shadow: #A31015;
+    padding: 10px;
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.btn-3{
+    background-color: #69AB3D;
+    text-decoration: none;
+    width: 140px;
+    
+}
+
+.btn-3:hover{
+    
+    color: var(--verde);
+}
+
+.a3{
+    color: #E9EBED;
+    margin-left:80px ;
+    
+    
+}
+
+.a3:hover{
+    color:var(--verde-mas-claro);
+}
+
+.radius{
+    border-radius: 10px;
+}
+
+
+
+#tittle3{
+text-align: center;
+font: normal normal normal 24px/32px Segoe UI;
+letter-spacing: 0px;
+color: #E9EBED;
+opacity: 1;
+margin-top: -40px;
+}
+
+.cantidad {
+    display: flex;
+    font-size: 20px;
+    padding-right: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cantidad i {
+    max-height: 12px;
+}
+
+
+.perfil-for{
+    background-color:var(--verde);
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: green;
+    color: white;
+    border-radius: 10px;
+}
+
+.form-bordes-for{
+    border-radius: 20px;
+ }
+
+#tittle{
+    text-align: center;
+    font: normal normal normal 24px/32px Segoe UI;
+    letter-spacing: 0px;
+    color: #E9EBED;
+    opacity: 1;
+}
+
+.perfil{
+    padding: 10px;
+    /* margin-left: 32%; */
+    margin-top: 30px;
+    font-size: 19px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0px;
+    text-align: left;
+    font: normal normal normal 16px/21px Segoe UI;
+    letter-spacing: 0px;
+    color: #E9EBED;
+    opacity: 1;
+
+}
+
+.btn-1{
+    text-decoration: none;
+    background-color: #69AB3D;
+    min-width: 120px;
+    width: 120px;
+    text-align: center;
+    margin-left: 10px;
+    /* margin-right: 10px; */
+    margin-bottom: -20px;
+    border: 0px;
+    height: 40px;
+}
+
+.btn-1:hover{
+    background-color:var(--verde-mas-claro);
+    color: aliceblue;
+
+}
+
+.new{
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+    
+}
+
+.entrega {
+    min-width: 30%;
+}
+
+.entrega form{
+    color: var(--blanco);
+}
+
+.form-entrega {
+    background-color: var(--verde);
+    min-width: 100%;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+}
+
+.form-entrega input {
+    min-width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.boton-compra {
+    background-color: var(--verde-claro);
+    border-radius: 0;
+    color: var(--blanco);
+}
+
+.boton-compra2 {
+    background-color: var(--verde-claro);
+    border-radius: 0;
+    color: var(--blanco);
+    width: 120px;
+    height: 40px;
+}
+
+.tabla-checkout {
+    width: 30%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+@media (max-width: 600px) {
+    .main-entrega {
+        display: flex;
+        flex-direction: column;
+    }
+    .tabla-checkout {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-height: 799px) {
+    .media-boton {
+        margin-bottom: 10px;
+    }
+}
+
+
+.donacion-form {
+    min-width: 100%;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    background-color: var(--verde);
+}
+
+.donacion-form input {
+    min-width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.donacion-main {
+    min-width: 40%;
+}
+
+.donacion-fields {
+    width: 70%;
+}
+
+.donacion-main form{
+    color: var(--blanco);
+}

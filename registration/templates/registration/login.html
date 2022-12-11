@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<!-- inicio usuario -->
+<div class="container-fluid">
+  <div class="row justify-content-center py-4 mt-5 mr-1 principal">
+      <div class="col-md-4 iniciar-for">
+          <div class="form-group text-center">
+              <p id="tittle2">Iniciar Sesion</p>
+          </div>
+          <form class="d-flex flex-column" action="" method="POST"> {% csrf_token %}
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
+                <input type="text" name="username" class="form-control form-bordes" id="id_username">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" id="id_password" name="password" class="form-control form-bordes " required>
+              </div>
+
+              <div class="mb-3">
+                <button type="submit" class="button2 btn-2 iniciar btn-block">Iniciar Sesion</button>
+                {% if form.non_field_errors %}
+                    <div class="alert alert-primary mt-3 alert-success" role="alert">
+                        Usuario o contraña incorrectos, vuelva a intentarlo.
+                    </div>
+                {% endif %}
+                {% if 'register' in request.GET %}
+                    <div class="alert alert-primary mt-3 alert-success" role="alert">
+                        Usuario registrado correctamente!
+                    </div>
+                {% endif %}
+              </div>
+              
+              
+                  <a class= "a2" href="{% url 'signup' %}">¿No tienes una cuenta? Registrarse</a>
+              
+              
+            </form>
+            
+          </div>
+      </div>
+  </div>
+<!-- fin usuario -->
+{% endblock %}

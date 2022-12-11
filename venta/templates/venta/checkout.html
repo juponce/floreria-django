@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %} Inicio 
+{% endblock %} {% block content %}
+<section class="d-flex flex-column align-items-center justify-content-around main-entrega">
+    <!-- <div class="d-flex flex-column align-items-center entrega">
+        <h3 class="mt-5">Dirección de envio</h3>{% csrf_token %}
+
+        <form
+            action=""
+            method="POST"
+            class="d-flex flex-column align-items-center form-entrega"
+        >
+            <label for="calle" class="mt-1">Calle</label>
+            <input type="text" name="calle" />
+            <label for="numero" class="mt-1">Número</label>
+            <input type="number" name="numero" />
+            <label for="departamento" class="mt-1">Departamento</label>
+            <input type="text" name="departamento" />
+            <button type="submit" class="mt-3 btn confirmar-compra"
+            data-id="{{ item.id }}"
+            data-action="submit"
+            data-total="{{ item.get_total }}"
+            >Confirmar pedido</button>
+        </form>
+    </div> -->
+
+    <table class="table tabla-checkout mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <th scope="row">{{ item.producto.nombreProducto }}</th>
+                <td>{{ item.cantidad }}</td>
+                <td>${{ item.get_total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">Total</th>
+                <td>${{ carrito.get_total_cart }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <button type="submit" class="mt-3 btn confirmar-compra boton-compra"
+                    data-id="{{ carrito.id }}"
+                    data-action="submit"
+                    data-total="{{ carrito.get_total_cart }}"
+                    >Confirmar pedido</button>
+</section>
+
+{% endblock %}
